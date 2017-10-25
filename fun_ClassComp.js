@@ -119,3 +119,32 @@ class App extends React.Component{
   }
 }
 ReactDOM.render(<App />,mountNode);
+
+//_______________________________________________________
+class Button extends React.Component{
+	state = {counter:0};
+  
+  handleClick = () => {
+  this.setState((prevState)=>({
+  counter:prevState.counter +10
+  }))
+  };  
+ /* handleClick=function(){
+  this.setState(function(prevState){
+  counter:prevState.counter +1
+  })
+  };*/
+	render(){
+			return(
+    		<button onClick={this.handleClick}>{this.state.counter}</button>
+      );
+	}
+}
+
+const Result = (props) =>{
+return(
+<div>{props.counter}</div>
+);
+}
+ReactDOM.render(<Button/>,mountNode);
+
